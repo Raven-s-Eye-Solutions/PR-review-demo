@@ -1,0 +1,25 @@
+div.MuiPaper-rounded {
+  padding: 3rem 0;
+  cursor: pointer;
+}
+
+div.MuiPaper-rounded:hover {
+  background-color: rgba(216, 216, 216, 0.1);
+}
+
+#calculator-grid {
+  margin: 0 auto;
+  max-width: 50rem;
+}
+
+#equation-box {
+  min-height: 4rem;
+  border: 2px solid black;
+  background-color: rgba(216, 216, 216, 0.2);
+  width: 60vw;
+  margin: 0 auto;
+}
+
+#equation-box > span {
+  font-size: 3.5rem;
+}
