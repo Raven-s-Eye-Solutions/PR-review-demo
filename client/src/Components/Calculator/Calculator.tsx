@@ -31,7 +31,7 @@ export const Calculator: FunctionComponent = () => {
       const popEquation = equation.substring(0, equation.length - 1);
       setEquation(popEquation);
     }
-      }, [equation, setEquation]);
+  }, [equation, setEquation]);
 
   useEffect(() => {
     window && window.addEventListener('keyup', handleKeyUp);
@@ -40,8 +40,6 @@ export const Calculator: FunctionComponent = () => {
   useEffect(() => () => {
     window.removeEventListener('keyup', handleKeyUp);
   }, [handleKeyUp]);
-
-
 
   const FormRow: FunctionComponent<IFormRow> = ({ startNum }) => {
     return (
@@ -52,8 +50,6 @@ export const Calculator: FunctionComponent = () => {
         </Grid>
         <Grid item xs={4} onClick={(e) => handleClick(e)}>
           <Paper className={classes.paper}>{startNum + 1}</Paper>
-
-
 
         </Grid>
         <Grid item xs={4} onClick={(e) => handleClick(e)}>
