@@ -47,15 +47,13 @@ export const Calculator: FunctionComponent = () => {
   const CalcRow: FunctionComponent<ICalcRow> = ({ butArr }) => {
     return (
       <>
-        <Grid item xs={4} onClick={(e) => handleClick(e)}>
-          <Paper className={classes.paper}>{butArr[0]}</Paper>
-        </Grid>
-        <Grid item xs={4} onClick={(e) => handleClick(e)}>
-            <Paper className={classes.paper}>{butArr[1]}</Paper>
-        </Grid>
-        <Grid item xs={4} onClick={(e) => handleClick(e)}>
-          <Paper className={classes.paper}>{butArr[2]}</Paper>
-        </Grid>
+        {
+          butArr.map(but=>
+            <Grid item xs={4} onClick={(e) => handleClick(e)}>
+              <Paper className={classes.paper}>{but}</Paper>
+            </Grid>
+          )
+        }
       </>
     );
   };
