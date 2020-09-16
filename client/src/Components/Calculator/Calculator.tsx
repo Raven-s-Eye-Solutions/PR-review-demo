@@ -48,8 +48,8 @@ export const Calculator: FunctionComponent = () => {
     return (
       <>
         {
-          butArr.map(but=>
-            <Grid item xs={4} onClick={(e) => handleClick(e)}>
+          butArr.map((but,i)=>
+            <Grid item xs={4} key={i} onClick={(e) => handleClick(e)}>
               <Paper className={classes.paper}>{but}</Paper>
             </Grid>
           )
