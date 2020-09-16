@@ -44,6 +44,20 @@ export const Calculator: FunctionComponent = () => {
     );
   }
 
+  const CalcRow: FunctionComponent<ICalcRow> = ({ butArr }) => {
+    return (
+      <>
+        {
+          butArr.map((but,i)=>
+            <Grid item xs={4} key={i} onClick={(e) => handleClick(e)}>
+              <Paper className={classes.paper}>{but}</Paper>
+            </Grid>
+          )
+        }
+      </>
+    );
+  };
+
   return (
     <>
       <div id='equation-box'>
@@ -64,21 +78,24 @@ export const Calculator: FunctionComponent = () => {
          
                  <FormRow startNum={7} />
         </Grid>
+        <Grid container item xs={12} spacing={0}>
+          <CalcRow butArr={["+", "-", "C"]} />
+
+        </Grid>
+        <Grid container item xs={12} spacing={0}>
+            <CalcRow butArr={["/", "x", "="]} />
+        </Grid>
       </Grid>
     </>
-  )
-}
+  );
+};
 
 export default Calculator;
 
-
-
-
-
-
-
-
-
 export interface IFormRow {
   startNum: number;
+}
+
+export interface ICalcRow {
+  butArr: string[];
 }
