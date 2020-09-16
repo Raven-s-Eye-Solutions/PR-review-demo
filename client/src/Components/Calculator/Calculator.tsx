@@ -82,9 +82,10 @@ export const Calculator: FunctionComponent = () => {
         </Grid>
         <Grid container item xs={12} spacing={0}>
           <CalcRow butArr={["+", "-", "C"]} />
+
         </Grid>
         <Grid container item xs={12} spacing={0}>
-          <CalcRow butArr={["/", "x", "="]} />
+            <CalcRow butArr={["/", "x", "="]} />
         </Grid>
       </Grid>
     </>
