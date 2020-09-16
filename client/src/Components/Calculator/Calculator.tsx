@@ -1,4 +1,4 @@
-import React, { FunctionComponent, MouseEvent, useState } from 'react';
+import React, { FunctionComponent, MouseEvent, useState, useEffect, useCallback } from 'react';
 import { Grid, Paper } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -25,14 +25,33 @@ export const Calculator: FunctionComponent = () => {
     setEquation(currVal + textContent);
   };
 
+  const handleKeyUp = useCallback((event: any) => {
+    if (event.key === 'Backspace') {
+
+      const popEquation = equation.substring(0, equation.length - 1);
+      setEquation(popEquation);
+    }
+      }, [equation, setEquation]);
+
+  useEffect(() => {
+    window && window.addEventListener('keyup', handleKeyUp);
+  }, [handleKeyUp]);
+
+  useEffect(() => () => {
+    window.removeEventListener('keyup', handleKeyUp);
+  }, [handleKeyUp]);
+
+
+
   const FormRow: FunctionComponent<IFormRow> = ({ startNum }) => {
     return (
       <>
         <Grid item xs={4} onClick={(e) => handleClick(e)}>
+
           <Paper className={classes.paper}>{startNum}</Paper>
         </Grid>
         <Grid item xs={4} onClick={(e) => handleClick(e)}>
-                 <Paper className={classes.paper}>{startNum + 1}</Paper>
+          <Paper className={classes.paper}>{startNum + 1}</Paper>
 
 
 
@@ -58,11 +77,11 @@ export const Calculator: FunctionComponent = () => {
         <Grid container item xs={12} spacing={0}>
           <FormRow startNum={4} />
         </Grid>
-         
+
         <Grid container item xs={12} spacing={0}>
-         
-         
-                 <FormRow startNum={7} />
+
+
+          <FormRow startNum={7} />
         </Grid>
       </Grid>
     </>
